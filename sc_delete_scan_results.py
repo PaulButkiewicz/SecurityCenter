@@ -80,7 +80,7 @@ def login (uname, pword):
 def scanResults():
 	# Retrieves a list of scan result IDs and stores them in a list.
 	scanResults = []
-	data = connect('GET', '/rest/scanResult')
+	data = connect('GET', '/rest/scanResult?startTime=1#endTime='+str(time.localtime))  # this gets all reports
 	results = data.json()['response']['manageable']
 	if not results:
 		print "There are no manageable scan results to delete."
